@@ -1,0 +1,37 @@
+{
+  "doctype": "DocType",
+  "name": "AI Deliberation Round",
+  "module": "Ai Executive Board",
+  "istable": 1,
+  "fields": [
+    {
+      "fieldname": "round_number",
+      "fieldtype": "Int",
+      "label": "Round Number",
+      "reqd": 1
+    },
+    {
+      "fieldname": "stage",
+      "fieldtype": "Select",
+      "label": "Stage",
+      "options": "Independent\nCrossReview\nConsolidation\nRiskAudit",
+      "reqd": 1
+    },
+    {
+      "fieldname": "consolidated_output",
+      "fieldtype": "Long Text",
+      "label": "Consolidated Output"
+    },
+    {
+      "fieldname": "completed",
+      "fieldtype": "Check",
+      "label": "Completed"
+    },
+    {
+      "fieldname": "positions",
+      "fieldtype": "Table",
+      "label": "Department Positions",
+      "options": "AI Department Position"
+    }
+  ]
+}

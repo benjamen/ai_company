@@ -83,7 +83,7 @@ app_license = "mit"
 # ------------
 
 # before_install = "ai_company.install.before_install"
-# after_install = "ai_company.install.after_install"
+after_install = "ai_company.install.after_install"
 
 # Uninstallation
 # ------------
@@ -148,23 +148,7 @@ app_license = "mit"
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-# 	"all": [
-# 		"ai_company.tasks.all"
-# 	],
-# 	"daily": [
-# 		"ai_company.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"ai_company.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"ai_company.tasks.weekly"
-# 	],
-# 	"monthly": [
-# 		"ai_company.tasks.monthly"
-# 	],
-# }
+
 
 # Testing
 # -------
@@ -247,3 +231,10 @@ app_license = "mit"
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
 
+
+
+doc_events = {
+    "AI Executive Task": {
+        "on_update": "ai_company.ai_executive_board.utils.guards.prevent_unsafe_execution"
+    }
+}

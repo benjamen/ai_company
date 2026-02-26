@@ -1,0 +1,70 @@
+{
+  "doctype": "DocType",
+  "name": "AI Audit Log",
+  "module": "Ai Executive Board",
+  "track_changes": 1,
+  "fields": [
+    {
+      "fieldname": "executive_task",
+      "fieldtype": "Link",
+      "label": "Executive Task",
+      "options": "AI Executive Task",
+      "reqd": 1
+    },
+    {
+      "fieldname": "department",
+      "fieldtype": "Data",
+      "label": "Department"
+    },
+    {
+      "fieldname": "stage",
+      "fieldtype": "Data",
+      "label": "Stage"
+    },
+    {
+      "fieldname": "prompt_payload",
+      "fieldtype": "Long Text",
+      "label": "Prompt Payload"
+    },
+    {
+      "fieldname": "response_payload",
+      "fieldtype": "Long Text",
+      "label": "Response Payload"
+    },
+    {
+      "fieldname": "model_used",
+      "fieldtype": "Data",
+      "label": "Model Used"
+    },
+    {
+      "fieldname": "tokens_used",
+      "fieldtype": "Int",
+      "label": "Tokens Used"
+    },
+    {
+      "fieldname": "cost_estimate",
+      "fieldtype": "Float",
+      "label": "Cost Estimate"
+    },
+    {
+      "fieldname": "execution_time_ms",
+      "fieldtype": "Int",
+      "label": "Execution Time ms"
+    },
+    {
+      "fieldname": "created_at",
+      "fieldtype": "Datetime",
+      "label": "Created At"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "AI Auditor",
+      "read": 1
+    },
+    {
+      "role": "AI Executive System",
+      "read": 1
+    }
+  ]
+}

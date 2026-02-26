@@ -1,41 +1,41 @@
-### Ai Company
+## ai_company
 
-Optified AI
+Frappe app containing the **AI Executive Board** implementation.
 
-### Installation
-
-You can install this app using the [bench](https://github.com/frappe/bench) CLI:
+## Installation
 
 ```bash
-cd $PATH_TO_YOUR_BENCH
-bench get-app $URL_OF_THIS_REPO --branch develop
-bench install-app ai_company
+bench get-app ai_company
+bench --site <site_name> install-app ai_company
+bench --site <site_name> migrate
 ```
 
-### Contributing
-
-This app uses `pre-commit` for code formatting and linting. Please [install pre-commit](https://pre-commit.com/#installation) and enable it for this repository:
+## Bench Commands
 
 ```bash
-cd apps/ai_company
-pre-commit install
+bench --site <site_name> execute ai_company.ai_executive_board.api.executive_task.create_executive_task --kwargs "{'title':'Market Expansion','problem_statement':'Choose expansion strategy','strategic_priority':'Growth'}"
+bench --site <site_name> execute ai_company.ai_executive_board.api.executive_task.trigger_debate --kwargs "{'task_name':'AET-.00001'}"
+bench --site <site_name> execute ai_company.ai_executive_board.api.executive_task.approve_executive_task --kwargs "{'task_name':'AET-.00001'}"
 ```
 
-Pre-commit is configured to use the following tools for checking and formatting your code:
+## Migration Notes
 
-- ruff
-- eslint
-- prettier
-- pyupgrade
+- Includes module `Ai Executive Board` and five DocTypes:
+  - `AI Executive Task`
+  - `AI Deliberation Round` (child table)
+  - `AI Department Position` (child table)
+  - `AI Department Config`
+  - `AI Audit Log`
+- Post model sync patch creates roles:
+  - `AI Executive System`
+  - `AI Executive Approver`
+  - `AI Auditor`
+- Debate execution runs via background job queue (`long`) using `enqueue_executive_task`.
 
-### CI
+## API Endpoints
 
-This app can use GitHub Actions for CI. The following workflows are configured:
-
-- CI: Installs this app and runs unit tests on every push to `develop` branch.
-- Linters: Runs [Frappe Semgrep Rules](https://github.com/frappe/semgrep-rules) and [pip-audit](https://pypi.org/project/pip-audit/) on every pull request.
-
-
-### License
-
-mit
+- `ai_company.ai_executive_board.api.executive_task.create_executive_task`
+- `ai_company.ai_executive_board.api.executive_task.trigger_debate`
+- `ai_company.ai_executive_board.api.executive_task.approve_executive_task`
+- `ai_company.ai_executive_board.api.executive_task.reject_executive_task`
+- `ai_company.ai_executive_board.api.executive_task.rerun_debate`

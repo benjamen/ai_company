@@ -1,0 +1,105 @@
+{
+  "doctype": "DocType",
+  "name": "AI Executive Task",
+  "module": "Ai Executive Board",
+  "custom": 0,
+  "autoname": "format:AET-.#####",
+  "track_changes": 1,
+  "istable": 0,
+  "engine": "InnoDB",
+  "editable_grid": 1,
+  "fields": [
+    {
+      "fieldname": "title",
+      "fieldtype": "Data",
+      "label": "Title",
+      "reqd": 1
+    },
+    {
+      "fieldname": "problem_statement",
+      "fieldtype": "Long Text",
+      "label": "Problem Statement",
+      "reqd": 1
+    },
+    {
+      "fieldname": "related_doctype",
+      "fieldtype": "Link",
+      "label": "Related DocType",
+      "options": "DocType"
+    },
+    {
+      "fieldname": "related_name",
+      "fieldtype": "Dynamic Link",
+      "label": "Related Name",
+      "options": "related_doctype"
+    },
+    {
+      "fieldname": "strategic_priority",
+      "fieldtype": "Select",
+      "label": "Strategic Priority",
+      "options": "Growth\nRevenue\nMargin\nRisk\nStability\nInnovation",
+      "reqd": 1
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": "Draft\nRound1\nRound2\nConsolidation\nRiskReview\nPendingHuman\nApproved\nRejected\nExecuted\nError",
+      "default": "Draft",
+      "reqd": 1
+    },
+    {
+      "fieldname": "final_recommendation",
+      "fieldtype": "Long Text",
+      "label": "Final Recommendation"
+    },
+    {
+      "fieldname": "overall_risk_score",
+      "fieldtype": "Int",
+      "label": "Overall Risk Score"
+    },
+    {
+      "fieldname": "overall_confidence_score",
+      "fieldtype": "Int",
+      "label": "Overall Confidence Score"
+    },
+    {
+      "fieldname": "human_decision",
+      "fieldtype": "Select",
+      "label": "Human Decision",
+      "options": "\nApprove\nReject\nRevise"
+    },
+    {
+      "fieldname": "executed_at",
+      "fieldtype": "Datetime",
+      "label": "Executed At",
+      "read_only": 1
+    },
+    {
+      "fieldname": "deliberation_rounds",
+      "fieldtype": "Table",
+      "label": "Deliberation Rounds",
+      "options": "AI Deliberation Round"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "AI Executive System",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "submit": 0,
+      "cancel": 0
+    },
+    {
+      "role": "AI Executive Approver",
+      "read": 1,
+      "write": 1
+    },
+    {
+      "role": "AI Auditor",
+      "read": 1
+    }
+  ]
+}
